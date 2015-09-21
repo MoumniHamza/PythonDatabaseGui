@@ -42,7 +42,7 @@ def updateCharacter(change_id,name,gender,age,occupation):
               AGE={}, OCCUPATION='{}'".format(\
               name, gender, age, occupation)
     
-    sql_str = "UPDATE SIMPSON_INFO set \
+    sql_str = "UPDATE persons set \
        {} where ID={};".format(val_str,change_id)
     print sql_str
     
@@ -51,8 +51,8 @@ def updateCharacter(change_id,name,gender,age,occupation):
     return conn.total_changes
 
 
-def deletePerson():
-       select_specificperson = "DELETE FROM persons WHERE NAME = '{}';".format(change_id)
+def deletePerson(change_id):
+       select_specificperson = "DELETE FROM persons WHERE ID = '{}';".format(change_id)
        connection.execute(select_specificperson)
        connection.commit()
        return connection.total_changes
